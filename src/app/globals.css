@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  /* Editorial, warm neutral palette — no dark mode: this is a fixed identity. */
+  --color-paper: #fbf7f0;       /* warm off-white, page background */
+  --color-paper-alt: #f3ecdf;   /* champagne / sand, alternate section bg */
+  --color-card: #fffdf9;        /* card surface, slightly lifted from paper */
+  --color-ink: #362b21;         /* deep taupe-brown, primary text */
+  --color-ink-soft: #6f6152;    /* softened text / secondary copy */
+  --color-ink-faint: #9c8f7d;   /* tertiary / meta text */
+  --color-line: #e3d7c3;        /* hairline borders, dividers */
+  --color-line-soft: #ede4d3;   /* faint borders on light cards */
+  --color-accent: #97764f;      /* muted antique gold — CTAs, accents */
+  --color-accent-dark: #7a5f3d; /* accent hover / pressed */
+  --color-olive: #6b6f4f;       /* discreet olive, used sparingly */
+  --color-blush: #d8c3b0;       /* soft clay, used sparingly for badges */
+  --color-success: #5f6f4a;
+  --color-danger: #a45c4a;
+
+  --font-serif: var(--font-display);
+  --font-sans: var(--font-body);
+}
+
+@theme inline {
+  --color-paper: var(--color-paper);
+  --color-paper-alt: var(--color-paper-alt);
+  --color-card: var(--color-card);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-ink-faint: var(--color-ink-faint);
+  --color-line: var(--color-line);
+  --color-line-soft: var(--color-line-soft);
+  --color-accent: var(--color-accent);
+  --color-accent-dark: var(--color-accent-dark);
+  --color-olive: var(--color-olive);
+  --color-blush: var(--color-blush);
+  --color-success: var(--color-success);
+  --color-danger: var(--color-danger);
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+}
+
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-paper);
+}
+
+.font-serif-display {
+  font-family: var(--font-serif);
+}
+
+/* Fine hairline ornament used to separate editorial sections */
+.hr-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--color-accent);
+}
+.hr-ornament::before,
+.hr-ornament::after {
+  content: "";
+  height: 1px;
+  width: 2.5rem;
+  background: var(--color-line);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
