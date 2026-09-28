@@ -25,7 +25,7 @@ export default async function HomePage() {
     <>
       <Hero coupleNames={settings?.couple_names ?? "Catarina & Vitor"} photo={photos.hero} />
       <Story />
-      <EventInfo settings={settings} />
+      <EventInfo settings={settings} photo={photos.cha_de_panela} />
       <GiftPreview gifts={preview} />
       <FinalMessage
         finalMessage={settings?.final_message ?? null}

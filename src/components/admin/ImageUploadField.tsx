@@ -4,6 +4,41 @@ import { useRef, useState } from "react";
 import { EditorialImage } from "@/components/ui/EditorialImage";
 import { createClient } from "@/lib/supabase/client";
 
+/**
+ * Downscales large photos client-side before upload (max 1920px on the
+ * longest side, re-encoded as JPEG) so guests never wait on multi-megabyte
+ * originals and Next.js's image optimizer never chokes on them.
+ */
+async function compressImage(file: File): Promise<File> {
+  if (!file.type.startsWith("image/") || file.type === "image/svg+xml") {
+    return file;
+  }
+
+  const bitmap = await createImageBitmap(file).catch(() => null);
+  if (!bitmap) return file;
+
+  const maxDim = 1920;
+  const scale = Math.min(1, maxDim / Math.max(bitmap.width, bitmap.height));
+  const width = Math.round(bitmap.width * scale);
+  const height = Math.round(bitmap.height * scale);
+
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return file;
+  ctx.drawImage(bitmap, 0, 0, width, height);
+
+  const blob = await new Promise<Blob | null>((resolve) =>
+    canvas.toBlob(resolve, "image/jpeg", 0.85),
+  );
+  if (!blob) return file;
+
+  return new File([blob], file.name.replace(/\.\w+$/, ".jpg"), {
+    type: "image/jpeg",
+  });
+}
+
 export function ImageUploadField({
   bucket,
   name,
@@ -24,12 +59,13 @@ export function ImageUploadField({
     setUploading(true);
     setError(null);
     try {
+      const compressed = await compressImage(file);
       const supabase = createClient();
-      const ext = file.name.split(".").pop();
+      const ext = compressed.name.split(".").pop();
       const path = `${crypto.randomUUID()}.${ext ?? "jpg"}`;
       const { error: uploadError } = await supabase.storage
         .from(bucket)
-        .upload(path, file, { upsert: false });
+        .upload(path, compressed, { upsert: false });
 
       if (uploadError) {
         setError("Não foi possível enviar a imagem.");

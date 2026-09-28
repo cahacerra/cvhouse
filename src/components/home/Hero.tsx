@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { EditorialImage } from "@/components/ui/EditorialImage";
 import type { SitePhoto } from "@/lib/types";
@@ -14,7 +15,7 @@ export function Hero({
   return (
     <section
       id="topo"
-      className="relative flex min-h-[100svh] items-end overflow-hidden sm:items-center"
+      className="relative flex min-h-[100svh] items-end overflow-hidden bg-accent-dark sm:items-center"
     >
       <EditorialImage
         src={photo?.image_url}
@@ -24,7 +25,7 @@ export function Hero({
         sizes="100vw"
         priority
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/25 to-ink/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-accent-dark/90 via-accent-dark/45 to-accent-dark/25" />
 
       <div className="relative z-10 w-full px-6 pb-16 pt-40 text-center sm:px-8 sm:pb-0">
         <motion.p
@@ -35,14 +36,21 @@ export function Hero({
         >
           Nosso novo capítulo
         </motion.p>
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="font-script text-7xl text-paper sm:text-8xl md:text-9xl"
+          className="mx-auto flex justify-center"
         >
-          {coupleNames}
-        </motion.h1>
+          <Image
+            src="/logo.webp"
+            alt={coupleNames}
+            width={340}
+            height={340}
+            priority
+            className="h-40 w-40 drop-shadow-[0_2px_18px_rgba(0,0,0,0.35)] sm:h-52 sm:w-52 md:h-64 md:w-64"
+          />
+        </motion.div>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
