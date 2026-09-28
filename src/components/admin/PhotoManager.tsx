@@ -6,12 +6,6 @@ import type { SitePhoto, SitePhotoKey } from "@/lib/types";
 
 const LABELS: Record<SitePhotoKey, string> = {
   hero: "Foto de abertura (topo do site)",
-  story: "Foto da seção “Onde a nossa história mora”",
-  couple_1: "Foto do casal 1",
-  couple_2: "Foto do casal 2",
-  home_detail_1: "Detalhe da casa 1",
-  home_detail_2: "Detalhe da casa 2",
-  closing: "Foto de encerramento",
 };
 
 export function PhotoManager({

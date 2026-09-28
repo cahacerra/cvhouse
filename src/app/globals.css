@@ -1,21 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  /* Editorial wedding-invitation palette — deep wine, olive and dusty rose.
+  /* Editorial wedding-invitation palette — vivid wine burgundy and deep
+     olive, kept from the reference, with beige minimized in favor of a
+     near-white paper and two saturated full-bleed section colors.
      No dark mode: this is a fixed identity. */
-  --color-paper: #fbf3ef;       /* warm blush-cream, page background */
-  --color-paper-alt: #f1ddd2;   /* dusty rose, alternate section bg */
-  --color-card: #fdf7f4;        /* card surface, slightly lifted from paper */
-  --color-ink: #3d2027;         /* deep wine-brown, primary text */
-  --color-ink-soft: #6d4a52;    /* softened wine text / secondary copy */
-  --color-ink-faint: #a17f86;   /* tertiary / meta text */
-  --color-line: #e3c7bd;        /* hairline borders, dividers */
-  --color-line-soft: #eeddd4;   /* faint borders on light cards */
-  --color-accent: #6d2138;      /* deep wine / burgundy — CTAs, accents */
-  --color-accent-dark: #52182a; /* accent hover / pressed */
-  --color-olive: #838a56;       /* sage olive, used sparingly */
-  --color-blush: #e8c4b8;       /* dusty rose, used sparingly for badges */
-  --color-success: #6b7a4a;
+  --color-paper: #fdfbf7;        /* near-white, minimal beige */
+  --color-paper-alt: #f4efe6;    /* light neutral, used sparingly */
+  --color-card: #fffefb;         /* card surface, slightly lifted from paper */
+  --color-ink: #3a1620;          /* deep wine-brown, primary text */
+  --color-ink-soft: #6b434c;     /* softened wine text / secondary copy */
+  --color-ink-faint: #a08289;    /* tertiary / meta text */
+  --color-line: #e6d6cb;         /* hairline borders, dividers */
+  --color-line-soft: #f0e4da;    /* faint borders on light cards */
+  --color-accent: #7a0f28;       /* vivid wine / burgundy — CTAs, accents */
+  --color-accent-dark: #52081b;  /* accent hover / pressed */
+  --color-olive: #6b7a3a;        /* vivid sage olive — accents, badges */
+  --color-olive-deep: #47522a;   /* deep olive — full-bleed section bg */
+  --color-blush: #e8c4b8;        /* dusty rose, used sparingly for badges */
+  --color-success: #6b7a3a;
   --color-danger: #a8434f;
 
   --font-serif: var(--font-display);
@@ -35,6 +38,7 @@
   --color-accent: var(--color-accent);
   --color-accent-dark: var(--color-accent-dark);
   --color-olive: var(--color-olive);
+  --color-olive-deep: var(--color-olive-deep);
   --color-blush: var(--color-blush);
   --color-success: var(--color-success);
   --color-danger: var(--color-danger);

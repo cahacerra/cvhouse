@@ -1,6 +1,5 @@
 import { Hero } from "@/components/home/Hero";
 import { Story } from "@/components/home/Story";
-import { Gallery } from "@/components/home/Gallery";
 import { EventInfo } from "@/components/home/EventInfo";
 import { GiftPreview } from "@/components/home/GiftPreview";
 import { FinalMessage } from "@/components/home/FinalMessage";
@@ -26,11 +25,9 @@ export default async function HomePage() {
     <>
       <Hero coupleNames={settings?.couple_names ?? "Catarina & Vitor"} photo={photos.hero} />
       <Story />
-      <Gallery photos={photos} />
       <EventInfo settings={settings} />
       <GiftPreview gifts={preview} />
       <FinalMessage
-        photo={photos.closing}
         finalMessage={settings?.final_message ?? null}
         coupleNames={settings?.couple_names ?? "Catarina & Vitor"}
       />

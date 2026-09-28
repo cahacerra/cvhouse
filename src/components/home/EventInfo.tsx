@@ -1,6 +1,5 @@
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { LinkButton } from "@/components/ui/Button";
 import { formatEventDate, formatEventTime } from "@/lib/format";
 import type { EventSettings } from "@/lib/types";
 
@@ -15,14 +14,14 @@ function InfoRow({
 }) {
   return (
     <div className="flex items-start gap-4 py-4">
-      <div className="mt-0.5 flex h-9 w-9 flex-none items-center justify-center rounded-full border border-line text-accent">
+      <div className="mt-0.5 flex h-9 w-9 flex-none items-center justify-center rounded-full border border-paper/40 text-paper">
         {icon}
       </div>
       <div>
-        <p className="text-xs uppercase tracking-[0.2em] text-ink-faint">
+        <p className="text-xs uppercase tracking-[0.2em] text-paper/70">
           {label}
         </p>
-        <p className="mt-1 text-base text-ink sm:text-lg">{value}</p>
+        <p className="mt-1 text-base text-paper sm:text-lg">{value}</p>
       </div>
     </div>
   );
@@ -35,21 +34,25 @@ export function EventInfo({ settings }: { settings: EventSettings | null }) {
   const hasAnything = hasDate || hasTime || hasLocation;
 
   return (
-    <section id="cha-de-panela" className="scroll-mt-20 bg-paper py-24 sm:py-32">
+    <section
+      id="cha-de-panela"
+      className="scroll-mt-20 bg-olive-deep py-24 sm:py-32"
+    >
       <Container size="narrow">
-        <Reveal>
-          <p className="hr-ornament mb-6 text-xs uppercase tracking-[0.3em] text-ink-faint">
+        <Reveal className="text-center">
+          <RingsIcon className="mx-auto mb-6 h-10 w-10 text-paper/80" />
+          <p className="hr-ornament mb-6 text-xs uppercase tracking-[0.3em] text-paper/70">
             {settings?.event_name ?? "Chá de Panela"}
           </p>
-          <h2 className="mb-12 text-center font-serif-display text-3xl italic text-ink sm:text-5xl">
+          <h2 className="mb-12 font-serif-display text-3xl italic text-paper sm:text-5xl">
             Um encontro para celebrar
           </h2>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="rounded-sm border border-line-soft bg-card px-6 py-6 sm:px-10 sm:py-8">
+          <div className="border-t border-paper/20 px-2 pt-2 sm:px-6">
             {hasAnything ? (
-              <div className="divide-y divide-line-soft">
+              <div className="divide-y divide-paper/15">
                 {hasDate && (
                   <InfoRow
                     icon={<CalendarIcon />}
@@ -77,7 +80,7 @@ export function EventInfo({ settings }: { settings: EventSettings | null }) {
                 )}
               </div>
             ) : (
-              <p className="py-6 text-center text-base leading-relaxed text-ink-soft">
+              <p className="py-6 text-center text-base leading-relaxed text-paper/85">
                 Estamos com o coração cheio e os detalhes quase prontos.
                 <br />
                 Em breve contaremos a data, o horário e o endereço deste
@@ -86,21 +89,30 @@ export function EventInfo({ settings }: { settings: EventSettings | null }) {
             )}
 
             {settings?.address && settings?.maps_url && (
-              <div className="mt-6 flex justify-center border-t border-line-soft pt-6">
-                <LinkButton
+              <div className="mt-6 flex justify-center border-t border-paper/15 pt-6">
+                <a
                   href={settings.maps_url}
                   target="_blank"
-                  variant="outline"
-                  size="sm"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-paper/50 px-5 py-2.5 text-sm text-paper transition-colors hover:border-paper hover:bg-paper/10"
                 >
                   Como chegar
-                </LinkButton>
+                </a>
               </div>
             )}
           </div>
         </Reveal>
       </Container>
     </section>
+  );
+}
+
+function RingsIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 32" className={className} fill="none" stroke="currentColor" strokeWidth="1.5">
+      <circle cx="18" cy="16" r="10" />
+      <circle cx="30" cy="16" r="10" />
+    </svg>
   );
 }
 

@@ -62,15 +62,7 @@ export type EventSettings = {
   updated_at: string;
 };
 
-export const SITE_PHOTO_KEYS = [
-  "hero",
-  "story",
-  "couple_1",
-  "couple_2",
-  "home_detail_1",
-  "home_detail_2",
-  "closing",
-] as const;
+export const SITE_PHOTO_KEYS = ["hero"] as const;
 
 export type SitePhotoKey = (typeof SITE_PHOTO_KEYS)[number];
 
