@@ -39,7 +39,7 @@ export function Hero({
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="font-serif-display text-5xl italic text-paper sm:text-7xl md:text-8xl"
+          className="font-script text-7xl text-paper sm:text-8xl md:text-9xl"
         >
           {coupleNames}
         </motion.h1>

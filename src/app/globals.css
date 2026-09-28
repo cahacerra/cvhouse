@@ -1,23 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  /* Editorial, warm neutral palette — no dark mode: this is a fixed identity. */
-  --color-paper: #fbf7f0;       /* warm off-white, page background */
-  --color-paper-alt: #f3ecdf;   /* champagne / sand, alternate section bg */
-  --color-card: #fffdf9;        /* card surface, slightly lifted from paper */
-  --color-ink: #362b21;         /* deep taupe-brown, primary text */
-  --color-ink-soft: #6f6152;    /* softened text / secondary copy */
-  --color-ink-faint: #9c8f7d;   /* tertiary / meta text */
-  --color-line: #e3d7c3;        /* hairline borders, dividers */
-  --color-line-soft: #ede4d3;   /* faint borders on light cards */
-  --color-accent: #97764f;      /* muted antique gold — CTAs, accents */
-  --color-accent-dark: #7a5f3d; /* accent hover / pressed */
-  --color-olive: #6b6f4f;       /* discreet olive, used sparingly */
-  --color-blush: #d8c3b0;       /* soft clay, used sparingly for badges */
-  --color-success: #5f6f4a;
-  --color-danger: #a45c4a;
+  /* Editorial wedding-invitation palette — deep wine, olive and dusty rose.
+     No dark mode: this is a fixed identity. */
+  --color-paper: #fbf3ef;       /* warm blush-cream, page background */
+  --color-paper-alt: #f1ddd2;   /* dusty rose, alternate section bg */
+  --color-card: #fdf7f4;        /* card surface, slightly lifted from paper */
+  --color-ink: #3d2027;         /* deep wine-brown, primary text */
+  --color-ink-soft: #6d4a52;    /* softened wine text / secondary copy */
+  --color-ink-faint: #a17f86;   /* tertiary / meta text */
+  --color-line: #e3c7bd;        /* hairline borders, dividers */
+  --color-line-soft: #eeddd4;   /* faint borders on light cards */
+  --color-accent: #6d2138;      /* deep wine / burgundy — CTAs, accents */
+  --color-accent-dark: #52182a; /* accent hover / pressed */
+  --color-olive: #838a56;       /* sage olive, used sparingly */
+  --color-blush: #e8c4b8;       /* dusty rose, used sparingly for badges */
+  --color-success: #6b7a4a;
+  --color-danger: #a8434f;
 
   --font-serif: var(--font-display);
+  --font-script: var(--font-accent);
   --font-sans: var(--font-body);
 }
 
@@ -37,6 +39,7 @@
   --color-success: var(--color-success);
   --color-danger: var(--color-danger);
   --font-serif: var(--font-serif);
+  --font-script: var(--font-script);
   --font-sans: var(--font-sans);
 }
 
@@ -63,6 +66,10 @@ body {
 
 .font-serif-display {
   font-family: var(--font-serif);
+}
+
+.font-script {
+  font-family: var(--font-script);
 }
 
 /* Fine hairline ornament used to separate editorial sections */
