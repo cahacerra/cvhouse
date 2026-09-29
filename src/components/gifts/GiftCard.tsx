@@ -27,7 +27,7 @@ export function GiftCard({
           alt={gift.name}
           label="Foto do presente"
           className={clsx(
-            "aspect-[4/3] w-full transition-all duration-500",
+            "relative aspect-[4/3] w-full transition-all duration-500",
             isChosen && "grayscale-[60%] opacity-70",
           )}
           sizes="(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw"

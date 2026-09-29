@@ -58,7 +58,7 @@ export function EventInfo({
             <p className="hr-ornament mb-6 text-xs uppercase tracking-[0.3em] text-paper/70 md:justify-start">
               {settings?.event_name ?? "Chá de Panela"}
             </p>
-            <h2 className="mb-12 font-serif-display text-3xl italic text-paper sm:text-5xl">
+            <h2 className="heading-caps mb-12 text-2xl text-paper sm:text-4xl">
               Um encontro para celebrar
             </h2>
           </Reveal>
@@ -108,7 +108,7 @@ export function EventInfo({
                     href={settings.maps_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full border border-paper/50 px-5 py-2.5 text-sm text-paper transition-colors hover:border-paper hover:bg-paper/10"
+                    className="rounded-full border border-paper/50 px-6 py-2.5 text-xs uppercase tracking-[0.2em] text-paper transition-colors hover:border-paper hover:bg-paper/10"
                   >
                     Como chegar
                   </a>

@@ -6,11 +6,11 @@ export function Footer({ settings }: { settings: EventSettings | null }) {
   return (
     <footer className="border-t border-line-soft bg-paper-alt py-12">
       <Container className="flex flex-col items-center gap-4 text-center">
-        <p className="font-serif-display text-2xl text-ink">
+        <p className="font-script text-3xl text-accent">
           {settings?.couple_names ?? "Catarina & Vitor"}
         </p>
         <div className="hr-ornament w-full max-w-xs text-xs" />
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-ink-soft">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs uppercase tracking-[0.2em] text-ink-soft">
           <Link href="/" className="hover:text-ink">
             Início
           </Link>

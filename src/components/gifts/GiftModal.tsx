@@ -125,7 +125,7 @@ export function GiftModal({
                   src={gift.image_url}
                   alt={gift.name}
                   label="Foto do presente"
-                  className="aspect-[4/3] w-full"
+                  className="relative aspect-[4/3] w-full"
                   sizes="(min-width: 640px) 32rem, 100vw"
                 />
                 <div className="p-6">

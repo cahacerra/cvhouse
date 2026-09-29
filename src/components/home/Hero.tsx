@@ -15,7 +15,7 @@ export function Hero({
   return (
     <section
       id="topo"
-      className="relative flex min-h-[100svh] items-end overflow-hidden bg-accent-dark sm:items-center"
+      className="relative flex min-h-[100svh] items-end overflow-hidden bg-olive-deep sm:items-center"
     >
       <EditorialImage
         src={photo?.image_url}
@@ -25,7 +25,7 @@ export function Hero({
         sizes="100vw"
         priority
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-accent-dark/90 via-accent-dark/45 to-accent-dark/25" />
+      <div className="absolute inset-0 bg-gradient-to-t from-olive-deep/85 via-olive-deep/30 to-olive-deep/10" />
 
       <div className="relative z-10 w-full px-6 pb-16 pt-40 text-center sm:px-8 sm:pb-0">
         <motion.p
@@ -48,16 +48,16 @@ export function Hero({
             width={340}
             height={340}
             priority
-            className="h-40 w-40 drop-shadow-[0_2px_18px_rgba(0,0,0,0.35)] sm:h-52 sm:w-52 md:h-64 md:w-64"
+            className="h-36 w-36 drop-shadow-[0_2px_18px_rgba(0,0,0,0.35)] sm:h-48 sm:w-48 md:h-56 md:w-56"
           />
         </motion.div>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto mt-6 max-w-md font-serif-display text-lg text-paper/90 sm:text-xl"
+          className="mx-auto mt-4 max-w-md font-script text-3xl text-paper sm:text-4xl"
         >
-          Um novo capítulo começa aqui.
+          Um novo capítulo começa aqui
         </motion.p>
 
         <motion.div
@@ -68,9 +68,9 @@ export function Hero({
         >
           <a
             href="#historia"
-            className="group inline-flex flex-col items-center gap-3 text-sm tracking-wide text-paper/90 transition-colors hover:text-paper"
+            className="group inline-flex flex-col items-center gap-3 text-xs uppercase tracking-[0.25em] text-paper/90 transition-colors hover:text-paper"
           >
-            Entre para a nossa história
+            Nossa história
             <span className="flex h-10 w-6 items-start justify-center rounded-full border border-paper/50 pt-2">
               <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-paper/90 transition-transform" />
             </span>

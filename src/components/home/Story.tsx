@@ -1,5 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { EditorialImage } from "@/components/ui/EditorialImage";
+import type { SitePhoto } from "@/lib/types";
 
 const PARAGRAPHS = [
   "Algumas histórias não chegam até nós em linha reta. Elas atravessam o tempo, amadurecem, encontram novos caminhos e, quando menos esperamos, nos conduzem exatamente para onde deveríamos estar.",
@@ -13,15 +15,29 @@ const PARAGRAPHS = [
   "Porque, no futuro, quando esta casa estiver cheia de histórias, queremos olhar ao redor e lembrar que ela começou assim: com amor, com sonhos, com a escolha de caminharmos juntos e com as pessoas que amamos ao nosso lado.",
 ];
 
-export function Story() {
+export function Story({ photo }: { photo?: SitePhoto | null }) {
   return (
     <section id="historia" className="scroll-mt-20 bg-paper py-24 sm:py-32">
       <Container size="narrow">
+        {photo?.image_url && (
+          <Reveal className="mb-14 flex justify-center">
+            <div className="-rotate-2 rounded-[2px] bg-card p-3 pb-10 shadow-lg">
+              <EditorialImage
+                src={photo.image_url}
+                alt={photo.alt_text ?? "Catarina e Vitor"}
+                label=""
+                className="relative h-56 w-44 sm:h-64 sm:w-52"
+                sizes="220px"
+              />
+            </div>
+          </Reveal>
+        )}
+
         <Reveal>
           <p className="hr-ornament mb-6 text-xs uppercase tracking-[0.3em] text-ink-faint">
             Nossa história
           </p>
-          <h2 className="mb-12 text-center font-serif-display text-3xl italic text-ink sm:text-5xl">
+          <h2 className="heading-caps mb-12 text-center text-2xl text-ink sm:text-4xl">
             Onde a nossa história mora
           </h2>
         </Reveal>
@@ -45,10 +61,8 @@ export function Story() {
               <br />
               Sejam bem-vindos a este novo capítulo.
             </p>
-            <p className="mt-8 font-serif-display text-xl italic text-ink">
-              Com carinho,
-              <br />
-              Catarina &amp; Vitor
+            <p className="mt-8 font-script text-3xl text-accent">
+              Com carinho, Catarina &amp; Vitor
             </p>
           </div>
         </Reveal>

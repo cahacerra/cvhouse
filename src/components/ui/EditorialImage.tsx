@@ -6,6 +6,11 @@ import { clsx } from "clsx";
  * that tells the admin, in small print, which photo belongs there. This lets
  * every editorial slot on the site stay populated and well-composed before
  * real photography is uploaded through /admin/configuracoes.
+ *
+ * `className` must include a position utility (`relative` for normal-flow
+ * sizing, or `absolute inset-0 ...` for a full-bleed background) — it is
+ * never assumed here, since Tailwind can't reliably let a caller override a
+ * hardcoded `relative` with its own `absolute`.
  */
 export function EditorialImage({
   src,
@@ -24,7 +29,7 @@ export function EditorialImage({
 }) {
   if (src) {
     return (
-      <div className={clsx("relative overflow-hidden", className)}>
+      <div className={clsx("overflow-hidden", className)}>
         <Image
           src={src}
           alt={alt}
@@ -40,7 +45,7 @@ export function EditorialImage({
   return (
     <div
       className={clsx(
-        "relative flex items-end overflow-hidden border border-dashed border-line",
+        "flex items-end overflow-hidden border border-dashed border-line",
         className,
       )}
       style={{

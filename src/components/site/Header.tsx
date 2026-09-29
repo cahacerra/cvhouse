@@ -47,7 +47,7 @@ export function Header() {
             <Link
               key={link.label}
               href={link.href ?? `${isHome ? "" : "/"}#${link.hash}`}
-              className="text-sm tracking-wide text-ink-soft transition-colors hover:text-ink"
+              className="text-xs uppercase tracking-[0.2em] text-ink-soft transition-colors hover:text-ink"
             >
               {link.label}
             </Link>

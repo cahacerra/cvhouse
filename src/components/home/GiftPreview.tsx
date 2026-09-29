@@ -9,13 +9,13 @@ export function GiftPreview({ gifts }: { gifts: GiftWithCategory[] }) {
   const preview = gifts.slice(0, 3);
 
   return (
-    <section className="bg-paper-alt py-24 sm:py-32">
+    <section className="bg-sage-pale py-24 sm:py-32">
       <Container>
         <Reveal className="text-center">
           <p className="hr-ornament mb-6 text-xs uppercase tracking-[0.3em] text-ink-faint">
             Um convite
           </p>
-          <h2 className="font-serif-display text-3xl italic text-ink sm:text-5xl">
+          <h2 className="heading-caps text-2xl text-ink sm:text-4xl">
             Faça parte dos primeiros detalhes
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">
@@ -34,7 +34,7 @@ export function GiftPreview({ gifts }: { gifts: GiftWithCategory[] }) {
                     src={gift.image_url}
                     alt={gift.name}
                     label="Foto do presente"
-                    className="aspect-[4/3] w-full"
+                    className="relative aspect-[4/3] w-full"
                     sizes="(min-width: 640px) 30vw, 90vw"
                   />
                   <div className="p-5">
@@ -59,7 +59,12 @@ export function GiftPreview({ gifts }: { gifts: GiftWithCategory[] }) {
         )}
 
         <Reveal delay={0.2} className="mt-12 flex justify-center">
-          <LinkButton href="/presentes" variant="primary" size="lg">
+          <LinkButton
+            href="/presentes"
+            variant="outline"
+            size="lg"
+            className="uppercase tracking-[0.2em]"
+          >
             Ver lista de presentes
           </LinkButton>
         </Reveal>

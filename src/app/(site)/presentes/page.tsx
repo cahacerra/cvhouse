@@ -26,7 +26,7 @@ export default async function PresentesPage() {
           <p className="hr-ornament mb-6 text-xs uppercase tracking-[0.3em] text-ink-faint">
             Lista de presentes
           </p>
-          <h1 className="font-serif-display text-4xl italic text-ink sm:text-5xl">
+          <h1 className="heading-caps text-3xl text-ink sm:text-5xl">
             Um pouco de vocês nesta casa nova
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">

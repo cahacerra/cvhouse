@@ -86,7 +86,7 @@ export function ImageUploadField({
         src={url || null}
         alt={label}
         label="Nenhuma imagem enviada"
-        className="aspect-[4/3] w-full max-w-xs rounded-sm"
+        className="relative aspect-[4/3] w-full max-w-xs rounded-sm"
       />
       <input type="hidden" name={name} value={url} />
       <div className="flex flex-wrap items-center gap-3">
